@@ -14,11 +14,11 @@ const allTabs = [
         name: "experience",
         display: "Experience",
     },
-    {
-        index: 2,
-        name: "projects",
-        display: "Achievements",
-    }
+    // {
+    //     index: 2,
+    //     name: "projects",
+    //     display: "Achievements",
+    // }
 ];
 
 interface SlidingTabBarProps {
