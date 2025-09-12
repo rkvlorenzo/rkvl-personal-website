@@ -12,7 +12,7 @@ const allTabs = [
     {
         index: 1,
         name: "experience",
-        display: "My Journey",
+        display: "Experience",
     },
     {
         index: 2,
