@@ -23,7 +23,7 @@ const Education = () => {
                 {
                     educations.map((education, index) => {
                         return (
-                            <li key={index} className="mb-10 ms-4">
+                            <li key={index} className="mb-5 ms-4">
                                 <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                                 <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                     {education.duration}

@@ -5,7 +5,7 @@ const AboutMe = () => {
     return (
         <div className="mt-5 mb-5">
             <div className="flex items-center gap-2 text-[#c5c5c5] mb-5">
-                <BookOpen color="#c5c5c5" size={24} />
+                <BookOpen data-testid="book-open-icon" color="#c5c5c5" size={24} />
                 <span className="text-xl">About Me</span>
             </div>
 

@@ -15,7 +15,7 @@ const Experience = () => {
             }}
         >
             <div className="flex items-center gap-2 text-[#c5c5c5] mb-5">
-                <Briefcase   color="#c5c5c5" size={24} />
+                <Briefcase color="#c5c5c5" size={24} />
                 <span className="text-xl">Experience</span>
             </div>
 
@@ -29,6 +29,7 @@ const Experience = () => {
                                     {experience.duration}
                                 </time>
                                 <h3 className="text-lg font-semibold text-[#c5c5c5]">{experience.position}</h3>
+                                <h4 className="text-md text-[#c5c5c5]">{experience.company}</h4>
                                 <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">{experience.summary}</p>
                             </li>
                         )

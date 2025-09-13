@@ -5,6 +5,7 @@ import Image from "next/image";
 import {ChevronDown, Contact, Mail, MapPin} from "lucide-react";
 import {AnimatePresence, motion} from "framer-motion";
 import {slideIn} from "@/app/constants/animations";
+import NavDivider from "@/components/dividers/NavDivider";
 
 const PersonalInformation = () => {
     const [open, setOpen] = useState(false);
@@ -35,9 +36,7 @@ const PersonalInformation = () => {
                     <p className="text-gray-400">Software Engineer</p>
                 </div>
 
-                <div className="inline-flex items-center justify-center w-full">
-                    <hr className="h-px w-9/10 my-5 bg-gray-600 border-0" />
-                </div>
+                <NavDivider/>
 
                 <div className="w-full flex flex-col mx-5 my-5 mb-10">
                     <div className="flex items-center gap-2 text-[#c5c5c5] mb-5">

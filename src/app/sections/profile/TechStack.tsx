@@ -6,7 +6,7 @@ const TechStack = () => {
     return (
         <>
             <div className="flex items-center gap-2 text-[#c5c5c5] mb-5">
-                <ToolCase  color="#c5c5c5" size={24} />
+                <ToolCase data-testid="tool-case-icon"  color="#c5c5c5" size={24} />
                 <span className="text-xl">Tech Stack</span>
             </div>
 
