@@ -7,6 +7,7 @@ import PersonalInformation from "@/app/sections/personal-information/index";
 import { motion } from "motion/react";
 import { slideIn } from "@/app/constants/animations";
 import MyJourney from "@/app/sections/my-journey";
+import Achievements from "@/app/sections/achievements";
 
 const Page = () => {
     const [activeTab, setActiveTab] = useState(0);
@@ -40,6 +41,7 @@ const Page = () => {
                                 <div>
                                     {activeTab === 0 && <Profile/>}
                                     {activeTab === 1 && <MyJourney/>}
+                                    {activeTab === 2 && <Achievements/>}
                                 </div>
                             </div>
                         </div>
