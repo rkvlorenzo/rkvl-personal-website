@@ -1,6 +1,8 @@
 "use client";
 
 import React, {useEffect, useRef, useState} from 'react'
+import {ChevronUp} from "lucide-react";
+import { motion } from "motion/react";
 
 
 const allTabs = [
@@ -12,13 +14,13 @@ const allTabs = [
     {
         index: 1,
         name: "experience",
-        display: "Experience",
+        display: "My Journey",
     },
-    // {
-    //     index: 2,
-    //     name: "projects",
-    //     display: "Achievements",
-    // }
+    {
+        index: 2,
+        name: "projects",
+        display: "Achievements",
+    }
 ];
 
 interface SlidingTabBarProps {
@@ -39,6 +41,8 @@ const SlidingTabBar = ({
     const tabsRef = useRef<(HTMLButtonElement | null)[]>([]);
     const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0);
     const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
+
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleTabClick = (index: number) => {
         if (!isControlled) {
@@ -72,33 +76,78 @@ const SlidingTabBar = ({
     }, [activeTabIndex]);
 
     return (
-        <div className="relative mb-7 mx-auto flex h-12 flex-row rounded-3xl border border-gray-500 bg-[#161513] px-2 backdrop-blur-sm">
-      <span
-          className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-2 transition-all duration-300"
-          style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
-      >
-        <span className="h-full w-full rounded-3xl bg-gray-500" />
-      </span>
+        <>
+            <div className="hidden sm:flex relative mb-7 mx-auto h-12 flex-row rounded-3xl border border-gray-500 bg-[#161513] px-2 backdrop-blur-sm">
+              <span
+                  className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-2 transition-all duration-300"
+                  style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
+              >
+                <span className="h-full w-full rounded-3xl bg-gray-500" />
+              </span>
 
-            {allTabs.map((tab, index) => {
-                const isActive = activeTabIndex === index;
+                {allTabs.map((tab, index) => {
+                    const isActive = activeTabIndex === index;
 
-                return (
-                    <button
-                        key={tab.index}
-                        ref={(el) => {
-                            tabsRef.current[index] = el;
-                        }}
-                        className={`${
-                            isActive ? "" : "hover:text-neutral-300"
-                        } my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white`}
-                        onClick={() => handleTabClick(index)}
+                    return (
+                        <button
+                            key={tab.index}
+                            ref={(el) => {
+                                tabsRef.current[index] = el;
+                            }}
+                            className={`${
+                                isActive ? "" : "hover:text-neutral-300"
+                            } my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white`}
+                            onClick={() => handleTabClick(index)}
+                        >
+                            {tab.display}
+                        </button>
+                    );
+                })}
+            </div>
+
+            <div className="sm:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[90%] rounded-3xl border border-gray-500 bg-[#161513] backdrop-blur-sm shadow-lg z-50">
+                {/* Floating bar header */}
+                <button
+                    className="w-full flex items-center justify-between px-4 py-3 text-white font-light"
+                    onClick={() => setIsOpen(!isOpen)}
+                >
+
+                    <span>{allTabs[activeTabIndex]?.display}</span>
+                    <motion.div
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.5 }}
                     >
-                        {tab.display}
-                    </button>
-                );
-            })}
-        </div>
+                    <ChevronUp
+                        className="h-5 w-5"
+                    />
+                    </motion.div>
+                </button>
+
+                {/* Expandable menu */}
+                <div
+                    className={`transition-all duration-300 overflow-hidden ${
+                        isOpen ? "max-h-60" : "max-h-0"
+                    }`}
+                >
+                    <div className="flex flex-col">
+                        {allTabs.map((tab, index) => (
+                            <button
+                                key={tab.index}
+                                className={`px-4 py-2 text-left text-white hover:bg-gray-700 ${
+                                    activeTabIndex === index ? "bg-gray-800 font-medium" : ""
+                                }`}
+                                onClick={() => {
+                                    handleTabClick(index);
+                                    setIsOpen(false);
+                                }}
+                            >
+                                {tab.display}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </>
     );
 }
 

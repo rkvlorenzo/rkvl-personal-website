@@ -1,6 +1,6 @@
 import React from 'react'
 import {ToolCase} from "lucide-react";
-import techStacks from "@/app/constants/tech_stacks";
+import techStacks from "@/app/constants/techStacks";
 
 const TechStack = () => {
     return (

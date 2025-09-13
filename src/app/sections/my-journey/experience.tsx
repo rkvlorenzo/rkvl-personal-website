@@ -1,6 +1,7 @@
 import React from 'react'
 import experiences from "@/app/constants/experiences";
 import { motion } from "motion/react";
+import {Briefcase } from "lucide-react";
 
 const Experience = () => {
     return (
@@ -13,6 +14,11 @@ const Experience = () => {
                 ease: [0.25, 0.1, 0.25, 1],
             }}
         >
+            <div className="flex items-center gap-2 text-[#c5c5c5] mb-5">
+                <Briefcase   color="#c5c5c5" size={24} />
+                <span className="text-xl">Experience</span>
+            </div>
+
             <ol className="relative border-s border-gray-200 dark:border-gray-700">
                 {
                     experiences.map((experience, index) => {

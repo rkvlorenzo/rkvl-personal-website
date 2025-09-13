@@ -1,22 +1,30 @@
 "use client";
 
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import SlidingTabBar from "@/components/SlidingTabBar";
-import Profile from "@/app/sections/profile";
-import Experience from "@/app/sections/experience";
-import Personal_information from "@/app/sections/personal_information";
+import Profile from "@/app/sections/profile/index";
+import PersonalInformation from "@/app/sections/personal-information/index";
 import { motion } from "motion/react";
 import { slideIn } from "@/app/constants/animations";
+import MyJourney from "@/app/sections/my-journey";
 
 const Page = () => {
     const [activeTab, setActiveTab] = useState(0);
 
+    useEffect(() => {
+        if (activeTab) {
+            const el = document.getElementById("section-start");
+            if (el) {
+                el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        }
+    }, [activeTab]); // runs whenever "open" changes
+
     return (
         <>
-            <div className="max-w-7xl mx-auto px-4 py-8 text-[#c5c5c5]">
+            <div id="section-start" className="max-w-7xl mx-auto px-4 py-8 text-[#c5c5c5]">
                 <div className="flex flex-col md:flex-row gap-8">
-                    <Personal_information/>
-
+                    <PersonalInformation/>
                     <motion.main
                         initial="hidden"
                         animate="show"
@@ -29,15 +37,16 @@ const Page = () => {
                                     activeTabIndex={activeTab}
                                     onTabChange={(index) => setActiveTab(index)}
                                 />
-                                {activeTab === 0 && <Profile/>}
-                                {activeTab === 1 && <Experience/>}
+                                <div>
+                                    {activeTab === 0 && <Profile/>}
+                                    {activeTab === 1 && <MyJourney/>}
+                                </div>
                             </div>
                         </div>
                     </motion.main>
                 </div>
             </div>
         </>
-
     )
 }
 export default Page
