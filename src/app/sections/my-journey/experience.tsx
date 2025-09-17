@@ -19,25 +19,25 @@ const Experience = () => {
                 <span className="text-xl">Experience</span>
             </div>
 
-            <ol className="relative border-s border-gray-200 dark:border-gray-700">
+            <ol className="relative border-s border-gray-200">
                 {
                     experiences.map((experience, index) => {
                         return (
                             <li key={index} className="mb-10 ms-4">
-                                <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-                                <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+                                <time className="mb-1 text-sm font-normal leading-none text-gray-400">
                                     {experience.duration}
                                 </time>
                                 <h3 className="text-lg font-semibold text-[#c5c5c5]">{experience.position}</h3>
-                                <h4 className="text-md text-[#c5c5c5]">{experience.company}</h4>
-                                <ul className="list-disc pl-5 mt-2 space-y-1 text-base font-normal text-gray-500 dark:text-gray-400">
+                                <h4 className="text-md text-gray-500">{experience.company}</h4>
+                                <ul className="list-disc pl-5 mt-2 space-y-1 text-base font-normal">
                                     {experience.summary.map((point, i) => (
                                         <li key={i} className="pl-1">{point}</li>
                                     ))}
                                 </ul>
 
-                                <p className="mt-2 text-sm text-gray-400 dark:text-gray-500">
-                                    <span className="font-semibold text-gray-500 dark:text-gray-400">Tech Stack:</span> {experience.stacks.join(", ")}
+                                <p className="mt-2 text-sm text-gray-400 ">
+                                    <span className="font-semibold text-gray-500">Tech Stack:</span> {experience.stacks.join(", ")}
                                 </p>
                             </li>
                         )

@@ -19,17 +19,17 @@ const Education = () => {
                 <span className="text-xl">Education</span>
             </div>
 
-            <ol className="relative border-s border-gray-200 dark:border-gray-700">
+            <ol className="relative border-s border-gray-200">
                 {
                     educations.map((education, index) => {
                         return (
                             <li key={index} className="mb-5 ms-4">
-                                <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-                                <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white"></div>
+                                <time className="mb-1 text-sm font-normal leading-none text-gray-400 ">
                                     {education.duration}
                                 </time>
                                 <h3 className="text-lg font-semibold text-[#c5c5c5]">{education.position}</h3>
-                                <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">{education.summary}</p>
+                                <p className="mb-4 text-base font-normal text-gray-500">{education.summary}</p>
                             </li>
                         )
                     })

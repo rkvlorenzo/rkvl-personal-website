@@ -1,6 +1,7 @@
 import React from "react";
-import { Medal, Hourglass } from "lucide-react";
+import { Medal } from "lucide-react";
 import { motion } from "framer-motion";
+import achievements from "@/app/constants/achievements";
 
 const Achievements = () => {
     return (
@@ -19,17 +20,13 @@ const Achievements = () => {
                 <span className="text-xl">Achievements</span>
             </div>
 
-            {/* Coming Soon / Placeholder */}
-            <div className="flex flex-col items-center justify-center text-gray-400 py-10">
-                <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-                >
-                    <Hourglass size={40} />
-                </motion.div>
-                <p className="mt-3 text-lg font-medium">Coming Soon</p>
-                <p className="text-sm text-gray-500">This section is in progress</p>
-            </div>
+            <ul className="list-disc pl-6 space-y-2 text-base">
+                {achievements.map((achievement, i) => (
+                    <li key={i} className="leading-relaxed">
+                        {achievement}
+                    </li>
+                ))}
+            </ul>
         </motion.div>
     );
 };
