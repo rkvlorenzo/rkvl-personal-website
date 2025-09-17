@@ -34,6 +34,10 @@ const techStacks = [
         items: ["Apache Airflow", "Databricks", "Snowflake"]
     },
     {
+        category: "Security",
+        items: ['Auth0']
+    },
+    {
         category: "Monitoring & Observability",
         items: ["Sentry", "Datadog"]
     },

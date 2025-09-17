@@ -30,7 +30,15 @@ const Experience = () => {
                                 </time>
                                 <h3 className="text-lg font-semibold text-[#c5c5c5]">{experience.position}</h3>
                                 <h4 className="text-md text-[#c5c5c5]">{experience.company}</h4>
-                                <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">{experience.summary}</p>
+                                <ul className="list-disc pl-5 mt-2 space-y-1 text-base font-normal text-gray-500 dark:text-gray-400">
+                                    {experience.summary.map((point, i) => (
+                                        <li key={i} className="pl-1">{point}</li>
+                                    ))}
+                                </ul>
+
+                                <p className="mt-2 text-sm text-gray-400 dark:text-gray-500">
+                                    <span className="font-semibold text-gray-500 dark:text-gray-400">Tech Stack:</span> {experience.stacks.join(", ")}
+                                </p>
                             </li>
                         )
                     })
